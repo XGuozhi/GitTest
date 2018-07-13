@@ -16,7 +16,7 @@ git push -f origin master //强制上传
 git pull origin master:t1 //将远程master分支pull到本地t1分支并merge
 git fetch
 
-git branch -b *** //在当前版本建立***分支并转到***分支
+git branch  *** //在当前版本建立***分支
 git checkout *** //转到***分支
 
 git log --pretty=oneline //查看该分支所有版本的commit 并可以使用reset 恢复版本  使用q 退出；
@@ -29,8 +29,13 @@ git reset --mixed *** // 直接将HEAD指向***版本，之后的版本更改都重新放回工作区，
 
 git checkout -- 123.txt  //工作区的123.txt文件已经被修改，但还没有提交到暂存区（commit），该命令可以放弃工作区该文件的修改
 
-git reset HEAD    //已经将修改的文件放在暂存区，现在放弃修改，使用该命令撤销暂存区 然后再用上一条命令
+git reset HEAD    //将暂存区的修改撤销掉，并放置工作区（unstage）。 然后再用上一条命令，撤销工作区的修改
 
 
 git rm ***  //***为所要删除的文件，删除后也可以使用git checkout -- *** 恢复已删除的文件
+
+ssh-keygen -t rsa -C "youremail@example.com"  //  创建SSH Key
+git config --global alias.st status  //使用st 代替status ，git st
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 
