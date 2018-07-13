@@ -1,0 +1,36 @@
+git-bash
+git config --global user.name "***"
+git config --global user.email "***"
+
+cd /e/documrnts
+git init    //在Python或c++工作目录中init后在IDE或者编辑器中设置git
+git remote add origin *** //***为GitHub上远程仓库地址
+git remote -v  //查看远程仓库设置
+
+
+git status //查看本地仓库文件更改情况
+git add *** //***代表文件或用-A代表文件夹内所有的文件 并将此文件转到暂存区
+git commit -m "***" //***代表自己对此批文件的描述  ，并将此文件提交到对应分支、
+git push -u origin master //将本分支上传至远程仓库master分支上，也可以选择其它分支上。-u用于第一次上传建立连接，之后可省略
+git push -f origin master //强制上传
+git pull origin master:t1 //将远程master分支pull到本地t1分支并merge
+git fetch
+
+git branch -b *** //在当前版本建立***分支并转到***分支
+git checkout *** //转到***分支
+
+git log --pretty=oneline //查看该分支所有版本的commit 并可以使用reset 恢复版本  使用q 退出；
+git reflog --pretty=oneline //查看所有操作，并找出commit id 并可以恢复
+
+git reset --hard *** //*** 为所需要恢复版本commit 对应的字符串id，并恢复到该版本
+git reset --soft *** //***为所需要恢复的commit对应ID，只是将这个ID之后的版本全部放置暂存区。再使用reset head 放弃暂存区修改，或者使用commit提交更改
+git reset --mixed *** // 直接将HEAD指向***版本，之后的版本更改都重新放回工作区，但不会恢复文件，可以使用add 和 commit 重新提交
+
+
+git checkout -- 123.txt  //工作区的123.txt文件已经被修改，但还没有提交到暂存区（commit），该命令可以放弃工作区该文件的修改
+
+git reset HEAD    //已经将修改的文件放在暂存区，现在放弃修改，使用该命令撤销暂存区 然后再用上一条命令
+
+
+git rm ***  //***为所要删除的文件，删除后也可以使用git checkout -- *** 恢复已删除的文件
+
